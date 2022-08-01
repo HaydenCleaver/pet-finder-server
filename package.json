@@ -1,0 +1,25 @@
+{
+  "name": "pet-finder-server",
+  "version": "1.0.0",
+  "description": "Back-end for pet-finder application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaydenCleaver/pet-finder-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaydenCleaver/pet-finder-server/issues"
+  },
+  "homepage": "https://github.com/HaydenCleaver/pet-finder-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0"
+  }
+}
