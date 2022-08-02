@@ -29,7 +29,7 @@ class Pets {
 }
 
 const handlePets = (request, response) => {
-  let url = `https://api.petfinder.com/v2/animals?location=${request.query.location}&good_with_children=${request.query.hasKids}&good_with_cats=${hasCat}&good_with_dogs=${hasDog}`;
+  let url = `https://api.petfinder.com/v2/animals?location=${request.query.location}&good_with_children=${request.query.hasKids}&good_with_cats=${request.query.hasCat}&good_with_dogs=${request.query.hasDog}`;
 
   axios.get(url).then(res => {
     if (request.query.location.toLowerCase() === res.data.location.toLowerCase()){
