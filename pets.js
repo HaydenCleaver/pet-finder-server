@@ -40,10 +40,14 @@ const token = async () => {
   console.log(access_token.data.access_token);
   return access_token.data.access_token;
 };
+//promise.resolve to get back data from token function
 console.log(token());
 
 const handlePets = async (request, response) => {
-  console.log(token());
+  console.log('testone', token());
+  const usedToken = token();
+  console.log('test',usedToken);
+
   await axios.get(
     `https://api.petfinder.com/v2/animals`,
     // &good_with_children=${request.query.hasKids}&good_with_cats=${request.query.hasCat}&good_with_dogs=${request.query.hasDog}
