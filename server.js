@@ -32,6 +32,7 @@ app.use((request, response, next)=> {
 
 app.get('/pets', (request, response) => {
   handlePets(request, response);
+  // response.send(data);
 });
 
 app.post('/pets', postFavorite);
