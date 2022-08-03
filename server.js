@@ -11,6 +11,8 @@ const handlePets = require('./pets');
 const postFavorite = require('./modules/postFavorite.js');
 const getFavorite = require('./modules/getFavorite.js');
 const deleteFavorite = require('./modules/deleteFavorite.js');
+const data = require('./dummyData');
+
 const app = express();
 app.use(cors());
 
@@ -26,10 +28,10 @@ app.use((request, response, next)=> {
   next();
 });
 
-app.use(verifyUser);
+// app.use(verifyUser);
 
 app.get('/pets', (request, response) => {
-  handlePets(request, response);
+  response.send(data);
 });
 
 app.post('/pets', postFavorite);
