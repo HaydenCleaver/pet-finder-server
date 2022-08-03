@@ -19,7 +19,7 @@ function verifyUser(request, response, next){
 }
 
 const client = jwksClient({
-  jwksUri: ''
+  jwksUri: process.env.JWKS_URI
 });
 
 function getKey(header, callback) {

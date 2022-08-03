@@ -33,8 +33,8 @@ const token = async () => {
     'https://api.petfinder.com/v2/oauth2/token',
     new URLSearchParams({
       'grant_type': 'client_credentials',
-      'client_id': 'nTOF70b9vZBssJMF8nr1djOHA4R18r9hy8o3l5lZ8z9zia4oaU',
-      'client_secret': 'ScaPWQPgp8z9UICrDXtur0yuBiljwiRZ6IOdUa43'
+      'client_id': process.env.CLIENT_ID,
+      'client_secret': process.env.CLIENT_SECRET
     })
   );
   console.log(access_token.data.access_token);

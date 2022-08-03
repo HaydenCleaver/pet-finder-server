@@ -9,7 +9,8 @@ let favoriteSchema = new mongoose.Schema({
   picture: String,
   goodWithChildren: Boolean,
   goodWithDogs: Boolean,
-  goodWithCats: Boolean
+  goodWithCats: Boolean,
+  description: String
 });
 
 const Favorite = mongoose.model('favorite', favoriteSchema);
