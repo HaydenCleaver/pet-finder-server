@@ -49,11 +49,16 @@ const handlePets = async (request, response) => {
     headers: {
       Authorization: `Bearer ${usedToken}`
     }
+    // params:{
+    //   good_with_children: `${request.query.hasKids}`,
+    //   good_with_dogs: `${request.query.hasDog}`,
+    //   good_with_cats: `${request.query.hasCat}`
+    // }
   };
-
+  console.log(request.query);
   axios(config)
     .then(res => {
-      console.log(request.query.location);
+      console.log(request.query.location, config.url);
       let petResponse = res.data.animals.map(pet => new Pets (pet));
       console.log(res.data.animals);
       response.send(petResponse);
