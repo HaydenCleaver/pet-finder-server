@@ -42,30 +42,42 @@ const handlePets = async (request, response) => {
   const usedToken = await token();
 
   // console.log('###########',usedToken, '########');
+  let queryParams = {};
+
+  const paramFunction = () => {
+    if (request.query.good_with_children){
+      queryParams.good_with_children = request.query.good_with_children;
+    }
+    if (request.query.good_with_dogs){
+      queryParams.good_with_dogs = request.query.good_with_dogs;
+    }
+    if (request.query.good_with_cats){
+      queryParams.good_with_cats = request.query.good_with_cats;
+    }
+  };
+
+  paramFunction();
 
   let config = {
     url: `https://api.petfinder.com/v2/animals?location=${request.query.location}`,
     method: 'get',
     headers: {
       Authorization: `Bearer ${usedToken}`
-    }
-    // params:{
-    //   good_with_children: `${request.query.hasKids}`,
-    //   good_with_dogs: `${request.query.hasDog}`,
-    //   good_with_cats: `${request.query.hasCat}`
-    // }
+    },
+    params: queryParams
   };
-  console.log(request.query);
+  console.log(request.query, queryParams);
   axios(config)
     .then(res => {
       console.log(request.query.location, config.url);
       let petResponse = res.data.animals.map(pet => new Pets (pet));
-      console.log(res.data.animals);
+      // console.log(res.data.animals);
       response.send(petResponse);
     })
     .catch((error) => {
       response.status(404).send(`${error}: Location Not Found!`);
     });
+  queryParams = {};
 };
 
 module.exports = handlePets;
