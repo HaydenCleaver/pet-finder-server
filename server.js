@@ -7,7 +7,7 @@ const cors = require('cors');
 const mongoose = require ('mongoose');
 
 const verifyUser = require('./modules/authentication.js');
-const handlePets = require('./pets');
+const handlePets = require('./modules/pets.js');
 const postFavorite = require('./modules/postFavorite.js');
 const getFavorite = require('./modules/getFavorite.js');
 const deleteFavorite = require('./modules/deleteFavorite.js');
