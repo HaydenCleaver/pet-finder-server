@@ -27,7 +27,7 @@ app.use((request, response, next)=> {
   next();
 });
 
-// app.use(verifyUser);
+app.use(verifyUser);
 
 app.get('/pets', (request, response) => {
   handlePets(request, response);
