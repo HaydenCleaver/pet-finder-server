@@ -6,26 +6,27 @@ const postFavorite = async (request, response, next) => {
 
   let {
     name,
+    species,
+    breed,
+    age,
+    gender,
     picture,
+    status,
     goodWithChildren,
     goodWithDogs,
     goodWithCats,
     description
   } = request.body;
 
-  if (!name ||
-        !picture ||
-        !goodWithChildren ||
-        !goodWithDogs ||
-        !goodWithCats ||
-        !description ){
-    next ('Request Failed');
-  }
-
   try {
     let favorite = new Favorite ({
       name,
+      species,
+      breed,
+      age,
+      gender,
       picture,
+      status,
       goodWithChildren,
       goodWithDogs,
       goodWithCats,

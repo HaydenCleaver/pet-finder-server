@@ -8,18 +8,15 @@ server.use(cors());
 
 class Pets {
   constructor(obj){
-    // this.type = obj.type;
     this.species = obj.species;
     this.breed = obj.breeds.primary;
-    // this.color = obj.colors.primary;
     this.age = obj.age;
     this.gender = obj.gender;
-    // this.size = obj.size;
-    // this.coat = obj.coat;
     this.name = obj.name;
     this.description = obj.description;
     this.picture = obj.photos.map(el => el.large).slice(0,1).toString();
-    // this.status = obj.status;
+    this.status = obj.status;
+    this.organization = obj.organization;
     this.goodWithChildren = obj.environment.children;
     this.goodWithDogs = obj.environment.dogs;
     this.goodWithCats = obj.environment.cats;
@@ -54,6 +51,9 @@ const handlePets = async (request, response) => {
     if (request.query.good_with_cats){
       queryParams.good_with_cats = request.query.good_with_cats;
     }
+    if (request.query.type){
+      queryParams.type = request.query.type;
+    }
   };
 
   paramFunction();
@@ -71,7 +71,7 @@ const handlePets = async (request, response) => {
     .then(res => {
       console.log(request.query.location, config.url);
       let petResponse = res.data.animals.map(pet => new Pets (pet));
-      // console.log(res.data.animals);
+      console.log(res.data.animals);
       response.send(petResponse);
     })
     .catch((error) => {
