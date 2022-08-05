@@ -1,7 +1,6 @@
 'use strict';
 
 require('dotenv').config();
-const { appendFile } = require('fs');
 
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
